@@ -29,29 +29,39 @@ function tocarOuPausarFaixa() {
 }
 
 function capituloAnterior() {
-  pausarFaixa();
-
+  // 1. Lógica para voltar a faixa
   if (capitulo === 1) {
     capitulo = quantidadeCapitulos;
   } else {
     capitulo -= 1;
   }
 
-  audio.src = "/audios/" + capitulo + ".mp3";
+  
+  audio.src = "./audios/" + capitulo + ".mp3";
+  
+  
   nomeCapitulo.innerText = "Capítulo " + capitulo;
+  
+  
+  tocarFaixa();
 }
 
 function proximoCapitulo() {
-  pausarFaixa();
-
+  
   if (capitulo < quantidadeCapitulos) {
     capitulo += 1;
   } else {
     capitulo = 1;
   }
 
-  audio.src = "/audios/" + capitulo + ".mp3";
+  
+  audio.src = "./audios/" + capitulo + ".mp3";
+  
+  
   nomeCapitulo.innerText = "Capítulo " + capitulo;
+  
+  
+  tocarFaixa();
 }
 
 botaoPlayPause.addEventListener("click", tocarOuPausarFaixa);
